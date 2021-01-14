@@ -7,6 +7,9 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.view.View;
 
@@ -15,10 +18,13 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
+   public AppDatabase db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -30,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        //Code to create a Database     Dont know what it does if db was created earlier
+  //  db = Room.databaseBuilder(getApplicationContext(),
+ //           AppDatabase.class, AppDatabase.NAME).build();
     }
 
     @Override
@@ -53,4 +63,9 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+        //returns the Room Database
+    public AppDatabase getAppDatabase() {
+       return db;
+    }
+
 }

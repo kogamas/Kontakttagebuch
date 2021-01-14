@@ -1,34 +1,54 @@
 package com.example.kontakttagebuch;
 
-import java.util.Date;
-import java.util.LinkedList;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
+@Entity
 public class Person {
-    String name = "";
-    LinkedList<Contact> contactList;
+        @PrimaryKey(autoGenerate = true)
+        public int pid;
 
-    //constructor
-    public Person(String name) {
-        this.name = name;
-        this.contactList = new LinkedList<Contact>();
-    }
+        public String firstName;
+        public String lastName;
+        public String phone;
+        public String email;
+        public String text;
 
-    //setter method for name
-    public void changeName(String name) {
-        this.name = name;
-    }
 
-    public void addContact(Contact newContact) {
-        this.contactList.add(newContact);
-    }
 
-    public void addContact(int typeOfContact) {
-        this.contactList.add(new Contact(typeOfContact));
-    }
+        //constructor
+        public Person(String firstName, String lastName, String phone, String email, String text) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.phone = phone;
+                this.email = email;
+                this.text = text;
+        }
+        @Ignore
+        public Person(String firstName) {
+                this.firstName = firstName;
+        }
+        @Ignore
+        public Person(String firstName, String lastName) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+        }
+        //getter method for PrimaryKey pid
+        public int getPid() {
+                return this.pid;
+        }
 
-    public void addContact(Date timeOfContact, int typeOfContact) {
-        this.contactList.add(new Contact(timeOfContact, typeOfContact));
-    }
+        //setter method for Firstname
+        public void changeFirstname(String firstName) {
+                this.firstName = firstName;
+        }
+
+        //getter method for Firstname
+        public String getFirstname() {
+                return this.firstName;
+        }
+
 
 
 }

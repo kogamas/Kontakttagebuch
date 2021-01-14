@@ -1,4 +1,4 @@
-package com.example.kontakttagebuch.database;
+package com.example.kontakttagebuch;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -13,12 +13,19 @@ public interface ContactDao {
     List<Contact> getAll();
 
     @Query("SELECT * FROM contact WHERE cid IN (:contactIds)")
-    List<Person> loadAllByIds(int[] contactIds);
+    List<Contact> loadAllByIds(int[] contactIds);
 
-    /*
+    @Query("SELECT * FROM contact WHERE typeOfContact LIKE :typeOfContact")
+    List<Contact> loadAllByType(int typeOfContact);
+
+
+    /*  //Example Query
     @Query("SELECT * FROM person WHERE firstName LIKE :first AND " + "lastName LIKE :last LIMIT 1")
     Person findByName(String first, String last);
 */
+
+
+
     @Insert
     void insertAll(Contact... contact);
 
