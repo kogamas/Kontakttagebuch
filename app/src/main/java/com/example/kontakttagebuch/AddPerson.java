@@ -17,6 +17,10 @@ import androidx.navigation.fragment.NavHostFragment;
 
 public class AddPerson extends Fragment implements View.OnClickListener{
 
+   /* TODO: 
+   *
+   * */
+
     private AppDatabase db;
     private EditText firstnameEditText;
     private EditText lastnameEditText;

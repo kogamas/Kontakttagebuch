@@ -5,13 +5,21 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.room.Dao;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TimePicker;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +36,13 @@ public class AddContact extends Fragment implements View.OnClickListener {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
+
+    String[] persons = { "Suresh Dasari", "Trishika Dasari", "Rohini Alavala", "Praveen Kumar", "Madhav Sai" };
+
+    private TimePicker timePicker1;
+
 
     public AddContact() {
         // Required empty public constructor
@@ -50,6 +65,7 @@ public class AddContact extends Fragment implements View.OnClickListener {
         fragment.setArguments(args);
         return fragment;
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -83,9 +99,20 @@ public class AddContact extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_add_contact, container, false);
+        Spinner spin = (Spinner) view.findViewById(R.id.spinner);
+        timePicker1 = (TimePicker) view.findViewById(R.id.timePicker1);
+        ArrayList<String> arrayList1 = new ArrayList<String>();
 
+        arrayList1.add("Bangalore");
+        arrayList1.add("Delhi");
+        arrayList1.add("Mumbai");
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.support_simple_spinner_dropdown_item,persons) ;
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spin.setAdapter(adapter);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_contact, container, false);
+        return view;
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -98,4 +125,12 @@ public class AddContact extends Fragment implements View.OnClickListener {
         two.setOnClickListener(this);
     }
 
+
+    public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
+        Toast.makeText(getActivity(), "Selected User: "+ persons[position] ,Toast.LENGTH_SHORT).show();
+    }
+
+    public void onNothingSelected(AdapterView<?> arg0) {
+        // TODO - Custom Code
+    }
 }
