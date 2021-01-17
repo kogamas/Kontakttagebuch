@@ -49,6 +49,11 @@ public class Person {
                 return this.firstName;
         }
 
+        //getter method for Firstname
+        public String getWholeName() {
+                return this.firstName + " " + this.lastName;
+        }
+
 
 
 }

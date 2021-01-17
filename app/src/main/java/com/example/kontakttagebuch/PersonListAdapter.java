@@ -1,5 +1,6 @@
 package com.example.kontakttagebuch;
 
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -19,7 +20,7 @@ public class PersonListAdapter extends ListAdapter<Person, PersonViewHolder> {
     @Override
     public void onBindViewHolder(PersonViewHolder holder, int position) {
         Person current = getItem(position);
-        holder.bind(current.getFirstname());
+        holder.bind(current.getWholeName());
     }
 
 
@@ -35,5 +36,14 @@ public class PersonListAdapter extends ListAdapter<Person, PersonViewHolder> {
             return oldItem.getPid()==newItem.getPid();
         }
 
+    }
+    private OnEntryClickListener mOnEntryClickListener;
+
+    public interface OnEntryClickListener {
+        void onEntryClick(View view, int position);
+    }
+
+    public void setOnEntryClickListener(OnEntryClickListener onEntryClickListener) {
+        mOnEntryClickListener = onEntryClickListener;
     }
 }

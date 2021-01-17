@@ -4,8 +4,9 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
-import androidx.room.Dao;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,7 +16,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -36,12 +36,16 @@ public class AddContact extends Fragment implements View.OnClickListener {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    //private AppRepository mAppRepository;
+    private PersonDao mPersonDao;
+    private LiveData<List<NameTuple>> mNameTupleLiveDataList;
+    private List<NameTuple> mNameTupleList;
+    private AppRepository mRepository;
+    private AppViewModel mAppViewModel;
 
 
-
-    String[] persons = { "Suresh Dasari", "Trishika Dasari", "Rohini Alavala", "Praveen Kumar", "Madhav Sai" };
-
-    private TimePicker timePicker1;
+    //String[] persons = mAppRepository.getAllPersonNames();
+    String[] persons = {"Hans Heinrich", "Berta von Suttner", "Henry Dunant"};
 
 
     public AddContact() {
@@ -101,16 +105,27 @@ public class AddContact extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_contact, container, false);
         Spinner spin = (Spinner) view.findViewById(R.id.spinner);
-        timePicker1 = (TimePicker) view.findViewById(R.id.timePicker1);
-        ArrayList<String> arrayList1 = new ArrayList<String>();
+        mAppViewModel = new ViewModelProvider(getActivity()).get(AppViewModel.class);
 
-        arrayList1.add("Bangalore");
-        arrayList1.add("Delhi");
-        arrayList1.add("Mumbai");
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.support_simple_spinner_dropdown_item,persons) ;
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.support_simple_spinner_dropdown_item) ;
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        spin.setAdapter(adapter);
+
+        //do following inside observer or it wont be done
+        mAppViewModel.getAllPersonNames().observe(getViewLifecycleOwner(), persons -> {
+            mNameTupleList = persons;
+
+            List<String> nameTupleStringList= new ArrayList<>(mNameTupleList.size());
+            //this converts the nameTuple list to a String list
+            for (NameTuple currentTuple : mNameTupleList) {
+                nameTupleStringList.add(currentTuple.toString());
+            }
+            adapter.addAll(nameTupleStringList);
+            spin.setAdapter(adapter);
+                });
+
+
+
+
         // Inflate the layout for this fragment
         return view;
     }
@@ -127,7 +142,7 @@ public class AddContact extends Fragment implements View.OnClickListener {
 
 
     public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
-        Toast.makeText(getActivity(), "Selected User: "+ persons[position] ,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "Selected User: " ,Toast.LENGTH_SHORT).show();
     }
 
     public void onNothingSelected(AdapterView<?> arg0) {

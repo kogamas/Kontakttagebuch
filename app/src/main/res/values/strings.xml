@@ -11,6 +11,12 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="neue_person_anlegen">Neue person anlegen</string>
     <string name="kontakt_speichern">kontakt speichern</string>
+    <string name="Landing_Title">Kontakttagebuch</string>
+    <string name="text_CardView1">neue Kontaktperson</string>
+    <string name="text_CardView2">Neues Treffen</string>
+    <string name="text_CardView3">Infos zu Covid-19</string>
+    <string name="text_CardView4">Extra 1</string>
+    <string name="text_CardView5">Extra 2</string>
+    <string name="text_CardView6">etc.</string>
 </resources>

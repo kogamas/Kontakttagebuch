@@ -1,71 +1,71 @@
 package com.example.kontakttagebuch;
 
-import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
+import android.content.Intent;
+import android.graphics.Color;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
+import androidx.cardview.widget.CardView;
 
+import android.os.Bundle;
 import android.view.View;
-
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.GridLayout;
+import android.widget.GridView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-   public AppDatabase db;
+    GridLayout mainGrid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mainGrid = (GridLayout) findViewById(R.id.mainGrid);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-        //Code to create a Database     Dont know what it does if db was created earlier
-  //  db = Room.databaseBuilder(getApplicationContext(),
- //           AppDatabase.class, AppDatabase.NAME).build();
+        //Set Event
+        setSingleEvent(mainGrid);
+        //setToggleEvent(mainGrid);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+    private void setToggleEvent(GridLayout mainGrid) {
+        //Loop all child item of Main Grid
+        for (int i = 0; i < mainGrid.getChildCount(); i++) {
+            //You can see , all child item is CardView , so we just cast object to CardView
+            final CardView cardView = (CardView) mainGrid.getChildAt(i);
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (cardView.getCardBackgroundColor().getDefaultColor() == -1) {
+                        //Change background color
+                        cardView.setCardBackgroundColor(Color.parseColor("#FF6F00"));
+                        Toast.makeText(MainActivity.this, "State : True", Toast.LENGTH_SHORT).show();
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+                    } else {
+                        //Change background color
+                        cardView.setCardBackgroundColor(Color.parseColor("#FFFFFF"));
+                        Toast.makeText(MainActivity.this, "State : False", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         }
-
-        return super.onOptionsItemSelected(item);
-    }
-        //returns the Room Database
-    public AppDatabase getAppDatabase() {
-       return db;
     }
 
+    private void setSingleEvent(GridLayout mainGrid) {
+        //Loop all child item of Main Grid
+        for (int i = 0; i < mainGrid.getChildCount(); i++) {
+            //You can see , all child item is CardView , so we just cast object to CardView
+            CardView cardView = (CardView) mainGrid.getChildAt(i);
+            final int finalI = i;
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    Intent intent = new Intent(MainActivity.this,ActivityOne.class);
+                    intent.putExtra("info","This is activity from card item index  "+finalI);
+                    startActivity(intent);
+
+                }
+            });
+        }
+    }
 }
