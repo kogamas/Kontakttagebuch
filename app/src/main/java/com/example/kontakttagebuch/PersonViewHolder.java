@@ -14,7 +14,7 @@ public class PersonViewHolder extends RecyclerView.ViewHolder implements View.On
     private PersonViewHolder(View itemView) {
         super(itemView);
         itemView.setOnClickListener(this);
-        personItemView = itemView.findViewById(R.id.textView);
+        personItemView = itemView.findViewById(R.id.textView_recycler);
 
     }
 

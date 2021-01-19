@@ -66,12 +66,31 @@
                 android:layout_height="wrap_content"
                 android:text="Kontaktart" />
 
-            <EditText
-                android:id="@+id/editTextNumber"
+            <RadioGroup
+                android:id="@+id/radio"
+                android:orientation="horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="number" />
+                android:layout_height="wrap_content" >
+
+                <RadioButton
+                    android:id="@+id/radioK1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="K1"
+                    android:checked="true" />
+                <RadioButton
+                    android:id="@+id/radioK2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="K2" />
+
+                <RadioButton
+                    android:id="@+id/radioExtra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sonstige" />
+            </RadioGroup>
+
         </TableRow>
 
         <TableRow
@@ -89,8 +108,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="time" />
+                android:inputType="time"
+                tools:text="@tools:sample/date/hhmm" />
 
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Textview_datum" />
+
+            <EditText
+                android:id="@+id/editTextDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="date"
+                tools:text="@tools:sample/date/ddmmyy" />
         </TableRow>
 
         <TableRow

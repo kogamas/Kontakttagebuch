@@ -13,10 +13,21 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="kontakt_speichern">kontakt speichern</string>
     <string name="Landing_Title">Kontakttagebuch</string>
-    <string name="text_CardView1">neue Kontaktperson</string>
-    <string name="text_CardView2">Neues Treffen</string>
+    <string name="text_CardView1">Neue Person</string>
+    <string name="text_CardView2">Neuer Kontakt</string>
     <string name="text_CardView3">Infos zu Covid-19</string>
-    <string name="text_CardView4">Extra 1</string>
-    <string name="text_CardView5">Extra 2</string>
-    <string name="text_CardView6">etc.</string>
+    <string name="text_CardView4">Kontakte anzeigen</string>
+    <string name="text_CardView5">Symptomcheck</string>
+    <string name="text_CardView6">Ich bin Krank!</string>
+    <string name="neue_person_anlegen">Kontaktperson speichern</string>
+    <string name="textview_fragment_landing">Die 5 häufigsten Kontaktpersonen</string>
+    <string name="textview_recycler_title">Die 5 häufigsten Kontakte</string>
+    <string name="Textview_datum">Datum</string>
+    <string name="Info_textview1"><![CDATA[Kontaktarten Kontaktpersonen der Kategorie 1 (höheres Infektionsrisiko) Kontaktpersonen werden in folgenden Situationen der Kategorie 1 zugeordnet: • Enger Kontakt (<1,5 m) länger als 15 Minuten ohne adäquaten Schutz (adäquater Schutz = Quellfall und Kontaktperson tragen durchgehend und korrekt MNS [Mund-Nasen-Schutz] oder MNB [Mund-Nasen-Bedeckung]). • Kontakt unabhängig vom Abstand mit wahrscheinlich hoher Konzentration infektiöser Aerosole im Raum > 30 Minuten Kontaktpersonen der Kategorie 2 (geringeres Infektionsrisiko) Keine Exposition wie unter Kontaktkategorie 1 beschrieben (A, B), aber eine infektionsrelevante Exposition kann nicht sicher ausgeschlossen werden. • Nahfeldexposition (< 1,5 m) über einen Zeitraum von weniger als 15 Minuten • Quellfall und Kontaktperson trugen durchgehend und korrekt MNS oder MNB in Situationen, in denen 1,5 m Mindestabstand nicht eingehalten werden konnte. • Kurzzeitiger Aufenthalt (< 30 min) in einem Raum mit angenommener Anreicherung von infektiösen Aerosolen]]></string>
+
+    <string-array name="spinner_landing_array">
+        <item>Die 5 Personen mit dem meisten Kontakt</item>
+        <item>Die 5 zuletzt getroffenen Personen</item>
+    </string-array>
+
 </resources>

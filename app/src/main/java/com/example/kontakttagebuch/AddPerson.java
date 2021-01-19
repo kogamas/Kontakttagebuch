@@ -44,6 +44,7 @@ public class AddPerson extends Fragment implements View.OnClickListener{
         return inflater.inflate(R.layout.fragment_add_person, container, false);
     }
 
+
     @Override
     public void onClick(View view) {
         Log.d("ONCLICK", "onClick switch AddPerson is executed!");
@@ -53,7 +54,7 @@ public class AddPerson extends Fragment implements View.OnClickListener{
                 // do your code
                 Log.d("ONCLICK", "onClick case backButton is executed!");
                 NavHostFragment.findNavController(AddPerson.this)
-                        .navigate(R.id.action_addPerson_to_Landing);
+                        .navigate(R.id.action_addPerson_to_cardViewFragment);
                 break;
             case R.id.send_add_person:
                 Log.d("ONCLICK", "onClick case newPerson is executed!");
@@ -73,14 +74,13 @@ public class AddPerson extends Fragment implements View.OnClickListener{
                     mAppViewModel = new ViewModelProvider(this).get(AppViewModel.class);
                     Person person = new Person(firstname,lastname,phone,email,text);
                     mAppViewModel.insertPerson(person);//do nothing, because it would only add an empty person
-                //TODO: because the insertion is done in another thread navigate action is called before data is inserted, which leeds to new data not beeing displayed in landing
                 } else {
                     //do nothing, because it would only add an empty person
                 }
 
                 //after dealing with the input sends user back to landing page
                 NavHostFragment.findNavController(AddPerson.this)
-                        .navigate(R.id.action_addPerson_to_Landing);
+                        .navigate(R.id.action_addPerson_to_cardViewFragment);
                 break;
             default:
                 break;

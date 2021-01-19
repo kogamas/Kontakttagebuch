@@ -15,10 +15,18 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -44,12 +52,23 @@ public class AddContact extends Fragment implements View.OnClickListener {
     private AppViewModel mAppViewModel;
 
 
-    //String[] persons = mAppRepository.getAllPersonNames();
-    String[] persons = {"Hans Heinrich", "Berta von Suttner", "Henry Dunant"};
+    private EditText editTextTime;
+    private EditText editTextDate;
+    private EditText editTextTextMultiLine;
+    private RadioButton radio1;
+    private RadioButton radio2;
+    private RadioButton radio3;
+    private int radioType;
+    private Calendar calendar = Calendar.getInstance();
+    private Date time = calendar.getTime();;
+    private Date date;
+    private int mPid =-1;
+
 
 
     public AddContact() {
         // Required empty public constructor
+        calendar.setTimeInMillis(System.currentTimeMillis());
     }
 
     /**
@@ -90,11 +109,10 @@ public class AddContact extends Fragment implements View.OnClickListener {
                 // do your code
                 Log.d("ONCLICK", "onClick case backButton is executed!");
                 NavHostFragment.findNavController(AddContact.this)
-                        .navigate(R.id.action_addContact_to_Landing);
+                        .navigate(R.id.action_addContact_to_cardViewFragment);
                 break;
             case R.id.send_add_contacts:
-                Log.d("ONCLICK", "onClick case newContact is executed!");
-                // do your code
+
                 break;
             default:
                 break;
@@ -105,23 +123,96 @@ public class AddContact extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_contact, container, false);
         Spinner spin = (Spinner) view.findViewById(R.id.spinner);
-        mAppViewModel = new ViewModelProvider(getActivity()).get(AppViewModel.class);
+        mAppViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
+
+
+        editTextTime = view.findViewById(R.id.editTextTime);
+        editTextTime.setText(calendar.get(calendar.HOUR_OF_DAY)+":"+calendar.get(calendar.MINUTE));
+        editTextDate = view.findViewById(R.id.editTextDate);
+        editTextDate.setText(calendar.get(calendar.DAY_OF_MONTH)+"."+(calendar.get(calendar.MONTH)+1)+"."+calendar.get(calendar.YEAR));
+        editTextTextMultiLine = view.findViewById(R.id.editTextTextMultiLine);
+        radio1 = view.findViewById(R.id.radioK1);
+        radio2 = view.findViewById(R.id.radioK2);
+        radio3 = view.findViewById(R.id.radioExtra);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.support_simple_spinner_dropdown_item) ;
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+
+        //manage buttons
+        radio1 = view.findViewById(R.id.radioK1);
+        radio2 = view.findViewById(R.id.radioK2);
+        radio3 = view.findViewById(R.id.radioExtra);
+
+        Button one = view.findViewById(R.id.button_back_to_main2);
+        one.setOnClickListener(this); // calling onClick() method
+
+        Button two = view.findViewById(R.id.send_add_contacts);
+        two.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (radio1.isChecked()) {
+                    radioType = 1;
+                } else if (radio2.isChecked()) {
+                    radioType = 2;
+                } else if (radio3.isChecked()) {
+                    radioType = 3;
+                }
+
+                Log.d("ONCLICK", "onClick case newContact is executed!");
+                //int pid = firstnameEditText.getText().toString();
+              //  Log.d("FIRSTNAME", pid);  //hauts in die DB
+
+
+                String timeStr = editTextTime.getText().toString();
+                DateFormat formatter = new SimpleDateFormat("hh:mm a");
+                try {
+                    Date time = formatter.parse(timeStr);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                String extra = editTextTextMultiLine.getText().toString();
+                Log.d("Text", extra);
+
+                if (mPid!=-1) {
+                    mAppViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
+                    Contact contact = new Contact(mPid,time,radioType,extra);
+                    mAppViewModel.insertContact(contact);//do nothing, because it would only add an empty person
+                    //after dealing with the input sends user back to landing page
+                    NavHostFragment.findNavController(AddContact.this)
+                            .navigate(R.id.action_addContact_to_cardViewFragment);
+                } else {
+                    //do nothing, because it would only add an empty person
+                }
+
+            }
+        });
 
         //do following inside observer or it wont be done
         mAppViewModel.getAllPersonNames().observe(getViewLifecycleOwner(), persons -> {
             mNameTupleList = persons;
 
             List<String> nameTupleStringList= new ArrayList<>(mNameTupleList.size());
+            List<Integer> pidList= new ArrayList<>(mNameTupleList.size());
             //this converts the nameTuple list to a String list
             for (NameTuple currentTuple : mNameTupleList) {
                 nameTupleStringList.add(currentTuple.toString());
+                pidList.add(currentTuple.getPid());
             }
             adapter.addAll(nameTupleStringList);
             spin.setAdapter(adapter);
-                });
+            spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    mPid = pidList.get(position);
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+        });
 
 
 
@@ -130,15 +221,6 @@ public class AddContact extends Fragment implements View.OnClickListener {
         return view;
     }
 
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        Log.d("ONCREATED", "onCreated AddPerson is executed!");
-
-        Button one = (Button) view.findViewById(R.id.button_back_to_main2);
-        one.setOnClickListener(this); // calling onClick() method
-        Button two = (Button) view.findViewById(R.id.send_add_contacts);
-        two.setOnClickListener(this);
-    }
 
 
     public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {

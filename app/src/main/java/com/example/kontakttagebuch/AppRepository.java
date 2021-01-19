@@ -13,6 +13,10 @@ class AppRepository {
 
     private LiveData<List<Person>> mAllPersons;
     private LiveData<List<NameTuple>> mAllPersonNames;
+    private LiveData<List<Person>> mTop5Persons;
+    private LiveData<List<ContactWithName>> mContactsWithName;
+
+
 
     AppRepository(Application application) {
         AppDatabase db = AppDatabase.getDatabase(application);
@@ -21,6 +25,8 @@ class AppRepository {
         mPersonWithContact = db.personWithContactDao();
         mAllPersons = mPersonDao.getAlphabetizedPersons();
         mAllPersonNames = mPersonDao.getAlphabetizedNames();
+        mTop5Persons = mPersonDao.getTop5AlphabetizedPersons();
+        mContactsWithName = mContactDao.loadAllContactWithNames();
     }
 
     // Room executes all queries on a separate thread.
@@ -29,9 +35,14 @@ class AppRepository {
         return mAllPersons;
     }
     //TODO: add method to get all Contacts of a person
+    LiveData<List<Person>> getTop5Persons() {
+        return mTop5Persons;
+    }
 
     //returns Person names as string
     LiveData<List<NameTuple>> getAllPersonNames() {return  mAllPersonNames;}
+
+    LiveData<List<ContactWithName>> getAllContactsWithName() {return  mContactsWithName;}
 
     // You must call this on a non-UI thread or your app will throw an exception. Room ensures
     // that you're not doing any long running operations on the main thread, blocking the UI.
@@ -46,6 +57,8 @@ class AppRepository {
             mContactDao.insertAll(contact);
         });
     }
+
+
 /*
 The main takeaways:
 

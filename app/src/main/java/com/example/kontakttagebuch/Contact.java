@@ -25,10 +25,25 @@ public class Contact {
 
 
         public Contact(int personId, Date timeOfContact, int typeOfContact, String text) {
+                this.personId = personId;
                 this.timeOfContact = timeOfContact;
                 this.typeOfContact = typeOfContact;
                 this.text = text;
         }
 
+        public String toString(){
+                return cid +" "+ personId +" "+ typeOfContact  +" "+ timeOfContact.toString()  +" "+ text;
+        }
 
+        public int getCid() {
+                return cid;
+        }
+
+        public int getTypeOfContact() {
+                return typeOfContact;
+        }
+
+        public Date getTimeOfContact() {
+                return timeOfContact;
+        }
 }

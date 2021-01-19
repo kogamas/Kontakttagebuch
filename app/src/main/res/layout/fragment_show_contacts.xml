@@ -11,4 +11,10 @@
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#03A9F4" />
+
 </FrameLayout>

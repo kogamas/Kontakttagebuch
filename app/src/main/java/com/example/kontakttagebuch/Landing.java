@@ -30,7 +30,7 @@ public class Landing extends Fragment {
         final PersonListAdapter adapter = new PersonListAdapter(new PersonListAdapter.PersonDiff());
         recyclerView.setAdapter(adapter);
 
-        mAppViewModel = new ViewModelProvider(getActivity()).get(AppViewModel.class);
+        mAppViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
 
         mAppViewModel.getAllPersons().observe(getViewLifecycleOwner(), persons -> {
                     // Update the cached copy of the words in the adapter.
@@ -48,7 +48,7 @@ public class Landing extends Fragment {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(Landing.this)
-                        .navigate(R.id.action_Landing_to_addPerson);
+                        .navigate(R.id.action_cardViewFragment_to_addPerson);
             }
         });
         //The following code implements the changing of action after pressing a button
@@ -56,7 +56,7 @@ public class Landing extends Fragment {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(Landing.this)
-                        .navigate(R.id.action_Landing_to_addContact);
+                        .navigate(R.id.action_cardViewFragment_to_addContact);
             }
         });
     }

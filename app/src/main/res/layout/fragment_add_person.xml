@@ -36,7 +36,7 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textView_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Fügen Sie eine neue Person hinzu" />

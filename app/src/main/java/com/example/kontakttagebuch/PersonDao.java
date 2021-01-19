@@ -29,7 +29,10 @@ public interface PersonDao {
     LiveData<List<Person>> getAlphabetizedPersons();
     //this crates a LiveData object with the list of persons
 
-    @Query("SELECT firstName,lastName FROM person ORDER BY firstName ASC")
+    @Query("SELECT * FROM person ORDER BY firstName ASC LIMIT 5")
+    LiveData<List<Person>> getTop5AlphabetizedPersons();
+
+    @Query("SELECT pid,firstName,lastName FROM person ORDER BY firstName ASC")
     LiveData<List<NameTuple>> getAlphabetizedNames();
 
     @Query("SELECT * FROM person WHERE pid LIKE :id LIMIT 1")

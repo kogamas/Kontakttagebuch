@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 
 public class NameTuple {
+    @ColumnInfo(name = "pid")
+    public int pid;
+
     @ColumnInfo(name = "firstName")
     public String firstName;
 
@@ -14,6 +17,8 @@ public class NameTuple {
     public String toString() {
         return firstName + " " +lastName;
     }
+
+    public int getPid() {return pid;}
 }
 
 

@@ -3,36 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/Landing">
+    app:startDestination="@id/cardViewFragment">
 
-    <fragment
-        android:id="@+id/Landing"
-        android:name="com.example.kontakttagebuch.Landing"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_Landing_to_addPerson"
-            app:destination="@id/addPerson" />
-        <action
-            android:id="@+id/action_Landing_to_addContact"
-            app:destination="@id/addContact" />
-        <action
-            android:id="@+id/action_Landing_to_showContacts"
-            app:destination="@id/showContacts" />
-        <action
-            android:id="@+id/action_Landing_to_showPersons"
-            app:destination="@id/showPersons" />
-    </fragment>
     <fragment
         android:id="@+id/addPerson"
         android:name="com.example.kontakttagebuch.AddPerson"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_add_person">
-
         <action
-            android:id="@+id/action_addPerson_to_Landing"
-            app:destination="@id/Landing" />
+            android:id="@+id/action_addPerson_to_cardViewFragment"
+            app:destination="@id/cardViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/addContact"
@@ -40,8 +20,29 @@
         android:label="fragment_add_contact"
         tools:layout="@layout/fragment_add_contact" >
         <action
-            android:id="@+id/action_addContact_to_Landing"
-            app:destination="@id/Landing" />
+            android:id="@+id/action_addContact_to_cardViewFragment"
+            app:destination="@id/cardViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardViewFragment"
+        android:name="com.example.kontakttagebuch.CardViewFragment"
+        android:label="CardViewFragment"
+        tools:layout="@layout/fragment_cardview" >
+        <action
+            android:id="@+id/action_cardViewFragment_to_addPerson"
+            app:destination="@id/addPerson" />
+        <action
+            android:id="@+id/action_cardViewFragment_to_addContact"
+            app:destination="@id/addContact" />
+        <action
+            android:id="@+id/action_cardViewFragment_to_showContacts"
+            app:destination="@id/showContacts" />
+        <action
+            android:id="@+id/action_cardViewFragment_to_showInfo"
+            app:destination="@id/showInfo" />
+        <action
+            android:id="@+id/action_cardViewFragment_to_myWebView"
+            app:destination="@id/myWebView" />
     </fragment>
     <fragment
         android:id="@+id/showContacts"
@@ -49,16 +50,25 @@
         android:label="fragment_show_contacts"
         tools:layout="@layout/fragment_show_contacts" >
         <action
-            android:id="@+id/action_showContacts_to_Landing"
-            app:destination="@id/Landing" />
+            android:id="@+id/action_showContacts_to_cardViewFragment"
+            app:destination="@id/cardViewFragment" />
     </fragment>
     <fragment
-        android:id="@+id/showPersons"
-        android:name="com.example.kontakttagebuch.ShowPersons"
-        android:label="fragment_show_persons"
-        tools:layout="@layout/fragment_show_persons" >
+        android:id="@+id/showInfo"
+        android:name="com.example.kontakttagebuch.ShowInfo"
+        android:label="show_info_fragment"
+        tools:layout="@layout/show_info_fragment" >
         <action
-            android:id="@+id/action_showPersons_to_Landing"
-            app:destination="@id/Landing" />
+            android:id="@+id/action_showInfo_to_cardViewFragment"
+            app:destination="@id/cardViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myWebView"
+        android:name="com.example.kontakttagebuch.MyWebView"
+        android:label="fragment_web_view"
+        tools:layout="@layout/fragment_web_view" >
+        <action
+            android:id="@+id/action_myWebView_to_cardViewFragment"
+            app:destination="@id/cardViewFragment" />
     </fragment>
 </navigation>
