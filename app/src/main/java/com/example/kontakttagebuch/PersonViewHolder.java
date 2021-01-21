@@ -25,6 +25,7 @@ public class PersonViewHolder extends RecyclerView.ViewHolder implements View.On
     static PersonViewHolder create(ViewGroup parent) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recyclerview_item, parent, false);
+
         return new PersonViewHolder(view);
     }
     @Override

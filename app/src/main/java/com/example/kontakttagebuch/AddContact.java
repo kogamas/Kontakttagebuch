@@ -125,11 +125,17 @@ public class AddContact extends Fragment implements View.OnClickListener {
         Spinner spin = (Spinner) view.findViewById(R.id.spinner);
         mAppViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
 
+        DateFormat dateFormat = new SimpleDateFormat("dd.mm.yyyy");
+        DateFormat timeFormat = new SimpleDateFormat("hh:mm");
+        Date dateNow = calendar.getTime();
+
+        String strDate = dateFormat.format(dateNow);
+        String strTime = timeFormat.format(dateNow);
 
         editTextTime = view.findViewById(R.id.editTextTime);
-        editTextTime.setText(calendar.get(calendar.HOUR_OF_DAY)+":"+calendar.get(calendar.MINUTE));
+        editTextTime.setText(strTime);
         editTextDate = view.findViewById(R.id.editTextDate);
-        editTextDate.setText(calendar.get(calendar.DAY_OF_MONTH)+"."+(calendar.get(calendar.MONTH)+1)+"."+calendar.get(calendar.YEAR));
+        editTextDate.setText(strDate);
         editTextTextMultiLine = view.findViewById(R.id.editTextTextMultiLine);
         radio1 = view.findViewById(R.id.radioK1);
         radio2 = view.findViewById(R.id.radioK2);

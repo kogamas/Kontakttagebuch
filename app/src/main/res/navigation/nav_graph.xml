@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_cardViewFragment_to_myWebView"
             app:destination="@id/myWebView" />
+        <action
+            android:id="@+id/action_cardViewFragment_to_testedPositive"
+            app:destination="@id/testedPositive" />
     </fragment>
     <fragment
         android:id="@+id/showContacts"
@@ -69,6 +72,15 @@
         tools:layout="@layout/fragment_web_view" >
         <action
             android:id="@+id/action_myWebView_to_cardViewFragment"
+            app:destination="@id/cardViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/testedPositive"
+        android:name="com.example.kontakttagebuch.testedPositive"
+        android:label="fragment_tested_positive"
+        tools:layout="@layout/fragment_tested_positive" >
+        <action
+            android:id="@+id/action_testedPositive_to_cardViewFragment"
             app:destination="@id/cardViewFragment" />
     </fragment>
 </navigation>

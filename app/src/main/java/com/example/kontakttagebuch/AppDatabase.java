@@ -12,7 +12,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Person.class, Contact.class}, views = {ContactWithName.class}, version = 2, exportSchema = false)
+@Database(entities = {Person.class, Contact.class}, views = {ContactWithName.class}, version = 3, exportSchema = false)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
     public abstract PersonDao personDao();
@@ -70,6 +70,15 @@ public abstract class AppDatabase extends RoomDatabase {
                 personDao.insertAll(person);
                 person = new Person("Beate", "Musterfrau", "0660112345", "b.muster@test.at", "eine bekannte");
                 personDao.insertAll(person);
+                person = new Person("Lukas", "Tester", "0660112345", "b.muster@test.at", "eine bekannte");
+                personDao.insertAll(person);
+                person = new Person("Simon", "Name", "0660112345", "b.muster@test.at", "eine bekannte");
+                personDao.insertAll(person);
+                person = new Person("Ignaz", "Semmelweis", "0660112345", "b.muster@test.at", "eine bekannte");
+                personDao.insertAll(person);
+                person = new Person("Florence", "Nightingale", "0660112345", "b.muster@test.at", "eine bekannte");
+                personDao.insertAll(person);
+
             });
 
         }

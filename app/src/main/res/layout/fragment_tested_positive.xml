@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".testedPositive">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+
+            android:layout_marginTop="10dp"
+
+            android:text="Sie sind postiv getestet auf COVID-19?"
+            android:textSize="48sp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
+
+            android:layout_marginEnd="32dp"
+
+            android:text="Bleiben Sie bitte zuhause und melden sich unter der Nummer 1450 bei der Gesundheitsberatung. "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="32dp"
+            android:text="Bitte Informieren Sie ihre Kontaktpersonen um die Verbreitung des Virus zu stoppen!"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="32dp"
+            android:text="Kontaktpersonen sind all jene Personen die Sie innerhalb von 48 Stunden vor Symptombeginn und bis zu zehn Tage nach Erkrankungsbeginn getroffen haben."
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="32dp"
+            android:text="Falls Sie einen symptomfreien Verlauf haben gilt 48 Stunden vor der Probenentnahme."
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="10dp"
+
+            android:text="Entnehmen Sie die Kontaktdaten aus der folgenden Liste:"
+            android:textSize="20sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_positiv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</FrameLayout>

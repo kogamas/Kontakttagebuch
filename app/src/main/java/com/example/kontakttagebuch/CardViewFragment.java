@@ -9,10 +9,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,16 +67,21 @@ public class CardViewFragment extends Fragment {
         });
 
         //----------------------------------------start Recycler View
-
         recyclerView = view.findViewById(R.id.recyclerview);
+
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+                layoutManager.getOrientation());
+        recyclerView.addItemDecoration(dividerItemDecoration);
+
         final PersonListAdapter adapter = new PersonListAdapter(new PersonListAdapter.PersonDiff());
         recyclerView.setAdapter(adapter);
 
         mAppViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
-        adapter.submitList(mAppViewModel.getTop5Persons().getValue());
-        mAppViewModel.getTop5Persons().observe(getViewLifecycleOwner(), persons -> {
+
+        mAppViewModel.getAllPersons().observe(getViewLifecycleOwner(), persons -> {
             // Update the cached copy of the words in the adapter.
             adapter.submitList(persons);
         });
@@ -130,11 +137,17 @@ public class CardViewFragment extends Fragment {
                         case 1:  NavHostFragment.findNavController(CardViewFragment.this)
                                 .navigate(R.id.action_cardViewFragment_to_addContact);;
                             break;
-                        case 2:  NavHostFragment.findNavController(CardViewFragment.this)
+                        case 2: NavHostFragment.findNavController(CardViewFragment.this)
                                 .navigate(R.id.action_cardViewFragment_to_showInfo);;
                             break;
                         case 3:  NavHostFragment.findNavController(CardViewFragment.this)
                                 .navigate(R.id.action_cardViewFragment_to_showContacts);;
+                            break;
+                        case 4:
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://symptomchecker.fsw.at/")));
+                            break;
+                        case 5:  NavHostFragment.findNavController(CardViewFragment.this)
+                                .navigate(R.id.action_cardViewFragment_to_testedPositive);;
                             break;
                     }
 //                    Intent intent = new Intent(getActivity().getApplication(),ActivityOne.class);

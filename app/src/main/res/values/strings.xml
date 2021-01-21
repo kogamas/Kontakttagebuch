@@ -5,7 +5,7 @@
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="previous">zurück</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
@@ -18,16 +18,35 @@
     <string name="text_CardView3">Infos zu Covid-19</string>
     <string name="text_CardView4">Kontakte anzeigen</string>
     <string name="text_CardView5">Symptomcheck</string>
-    <string name="text_CardView6">Ich bin Krank!</string>
+    <string name="text_CardView6">Ich bin positiv, was nun?</string>
     <string name="neue_person_anlegen">Kontaktperson speichern</string>
     <string name="textview_fragment_landing">Die 5 häufigsten Kontaktpersonen</string>
     <string name="textview_recycler_title">Die 5 häufigsten Kontakte</string>
     <string name="Textview_datum">Datum</string>
-    <string name="Info_textview1"><![CDATA[Kontaktarten Kontaktpersonen der Kategorie 1 (höheres Infektionsrisiko) Kontaktpersonen werden in folgenden Situationen der Kategorie 1 zugeordnet: • Enger Kontakt (<1,5 m) länger als 15 Minuten ohne adäquaten Schutz (adäquater Schutz = Quellfall und Kontaktperson tragen durchgehend und korrekt MNS [Mund-Nasen-Schutz] oder MNB [Mund-Nasen-Bedeckung]). • Kontakt unabhängig vom Abstand mit wahrscheinlich hoher Konzentration infektiöser Aerosole im Raum > 30 Minuten Kontaktpersonen der Kategorie 2 (geringeres Infektionsrisiko) Keine Exposition wie unter Kontaktkategorie 1 beschrieben (A, B), aber eine infektionsrelevante Exposition kann nicht sicher ausgeschlossen werden. • Nahfeldexposition (< 1,5 m) über einen Zeitraum von weniger als 15 Minuten • Quellfall und Kontaktperson trugen durchgehend und korrekt MNS oder MNB in Situationen, in denen 1,5 m Mindestabstand nicht eingehalten werden konnte. • Kurzzeitiger Aufenthalt (< 30 min) in einem Raum mit angenommener Anreicherung von infektiösen Aerosolen]]></string>
+    <string name="html_info"><![CDATA[Kontaktarten Kontaktpersonen der Kategorie 1 (höheres Infektionsrisiko) Kontaktpersonen werden in folgenden Situationen der Kategorie 1 zugeordnet: • Enger Kontakt (<1,5 m) länger als 15 Minuten ohne adäquaten Schutz (adäquater Schutz = Quellfall und Kontaktperson tragen durchgehend und korrekt MNS [Mund-Nasen-Schutz] oder MNB [Mund-Nasen-Bedeckung]). • Kontakt unabhängig vom Abstand mit wahrscheinlich hoher Konzentration infektiöser Aerosole im Raum > 30 Minuten Kontaktpersonen der Kategorie 2 (geringeres Infektionsrisiko) Keine Exposition wie unter Kontaktkategorie 1 beschrieben (A, B), aber eine infektionsrelevante Exposition kann nicht sicher ausgeschlossen werden. • Nahfeldexposition (< 1,5 m) über einen Zeitraum von weniger als 15 Minuten • Quellfall und Kontaktperson trugen durchgehend und korrekt MNS oder MNB in Situationen, in denen 1,5 m Mindestabstand nicht eingehalten werden konnte. • Kurzzeitiger Aufenthalt (< 30 min) in einem Raum mit angenommener Anreicherung von infektiösen Aerosolen]]></string>
+    <string name="link1"><a href="https://www.google.com/">Tap here to open Link</a></string>
+    <string name="link2"><a href="https://www.google.com/">Tap here to open Link</a></string>
+    <string name="link3"><a href="https://www.google.com/">Tap here to open Link</a></string>
+    <string name="link4"><a href="https://www.google.com/">Tap here to open Link</a></string>
+    <string name="save_button">Speichern</string>
+    <string name="kontaktarten">Kontaktarten</string>
+    <string name="kontaktpersonen_der_kategorie_1_h_heres_infektionsrisiko">Kontaktpersonen der Kategorie 1 (höheres Infektionsrisiko)</string>
+    <string name="enger_kontakt_1_5_m_l_nger_als_15_minuten_ohne_dass_quellfall_und_kontaktperson_mns_tragen"><![CDATA[Enger Kontakt (<1,5 m) länger als 15 Minuten ohne, dass Quellfall und Kontaktperson MNS tragen.]]></string>
+    <string name="kontakt_unabh_ngig_vom_abstand_mit_wahrscheinlich_hoher_konzentration_infekti_ser_aerosole_im_raum_30_minuten"><![CDATA[Kontakt unabhängig vom Abstand mit wahrscheinlich hoher Konzentration infektiöser Aerosole im Raum > 30 Minuten]]></string>
+    <string name="kontaktpersonen_der_kategorie_2_geringeres_infektionsrisiko">Kontaktpersonen der Kategorie 2 (geringeres Infektionsrisiko)</string>
+    <string name="nahfeldexposition_1_5_m_ber_einen_zeitraum_von_weniger_als_15_minuten"><![CDATA[Nahfeldexposition (< 1,5 m) über einen Zeitraum von weniger als 15 Minuten]]></string>
+    <string name="quellfall_und_kontaktperson_trugen_durchgehend_und_korrekt_mns_in_situationen_in_denen_1_5_m_mindestabstand_nicht_eingehalten_werden_konnte"><![CDATA[Quellfall und Kontaktperson trugen durchgehend und korrekt MNS in Situationen, in denen 1,5 m Mindestabstand nicht eingehalten werden konnte]]></string>
+    <string name="kurzzeitiger_aufenthalt_30_min_in_einem_raum_mit_angenommener_anreicherung_von_infekti_sen_aerosolen"><![CDATA[Kurzzeitiger Aufenthalt (< 30 min) in einem Raum mit angenommener Anreicherung von infektiösen Aerosolen]]></string>
+    <string name="wichtige_links">Wichtige Links:</string>
+    <string name="https_www_oesterreich_gv_at_nhttps_www_sozialministerium_at_informationen_zum_coronavirus_html_nhttps_www_1450_at_1450_die_gesundheitsnummer_nhttps_notrufnoe_com_category_infocenter_info_ueber_covid_nhttps_orf_at_corona_daten_oesterreich">https://www.oesterreich.gv.at/\nhttps://www.sozialministerium.at/Informationen-zum-Coronavirus.html\nhttps://www.1450.at/1450-die-gesundheitsnummer/\nhttps://notrufnoe.com/category/infocenter/info-ueber/covid/\nhttps://orf.at/corona/daten/oesterreich</string>
 
     <string-array name="spinner_landing_array">
-        <item>Die 5 Personen mit dem meisten Kontakt</item>
+        <item>Die häufigsten Kontaktpersonen</item>
         <item>Die 5 zuletzt getroffenen Personen</item>
     </string-array>
 
+    <string-array name="spinner_show_contacts_array">
+        <item>Die 5 zuletzt getroffenen Personen</item>
+        <item>Die 5 häufigsten Kontakte</item>
+    </string-array>
 </resources>

@@ -167,7 +167,7 @@
                     android:id="@+id/send_add_contacts"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Senden" />
+                    android:text="@string/save_button" />
             </TableRow>
 
             <TableRow

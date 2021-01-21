@@ -8,6 +8,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class ContactListAdapter extends ListAdapter<ContactWithName, ContactViewHolder> {
@@ -27,7 +30,11 @@ public class ContactListAdapter extends ListAdapter<ContactWithName, ContactView
     public void onBindViewHolder(ContactViewHolder holder, int position) {
         ContactWithName current = getItem(position);
         holder.bindPerson(current.getName());
-        holder.bindTime(current.getTimeOfContact().toString());
+
+        DateFormat dateFormat = new SimpleDateFormat("hh:mm - dd.MM.yyyy");
+        Date date = current.getTimeOfContact();
+        String strDate = dateFormat.format(date);
+        holder.bindTime(strDate);
 
         switch (current.getTypeOfContact()) {
             case 1:

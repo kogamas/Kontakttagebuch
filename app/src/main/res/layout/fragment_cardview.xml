@@ -70,10 +70,10 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:layout_gravity="center_horizontal"
-                            app:srcCompat="@drawable/me_time" />
+                            app:srcCompat="@drawable/icon_person_add" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -109,10 +109,10 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:layout_gravity="center_horizontal"
-                            app:srcCompat="@drawable/family_time" />
+                            app:srcCompat="@drawable/icon_contact_add" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -151,10 +151,10 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:layout_gravity="center_horizontal"
-                            app:srcCompat="@drawable/lovely_time" />
+                            app:srcCompat="@drawable/icon_info" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -190,10 +190,10 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:layout_gravity="center_horizontal"
-                            app:srcCompat="@drawable/team_time" />
+                            app:srcCompat="@drawable/icon_show_contacts" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -231,10 +231,10 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:layout_gravity="center_horizontal"
-                            app:srcCompat="@drawable/lovely_time" />
+                            app:srcCompat="@drawable/icon_symptomcheck" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -270,10 +270,10 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:layout_gravity="center_horizontal"
-                            app:srcCompat="@drawable/team_time" />
+                            app:srcCompat="@drawable/icon_positiv" />
 
                         <TextView
                             android:layout_width="wrap_content"

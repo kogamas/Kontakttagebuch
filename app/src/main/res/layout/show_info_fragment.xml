@@ -1,21 +1,113 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ShowInfo">
+    tools:context=".ShowInfo"
+    android:orientation="vertical"
+    android:gravity="top|fill_vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
 
-        <TextView
-            android:id="@+id/textView18"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Info_textview1" />
+        android:textSize="48sp"
 
-    </LinearLayout>
+        android:text="@string/kontaktarten" />
 
-</FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="10dp"
+
+        android:textSize="20sp"
+
+        android:text="@string/kontaktpersonen_der_kategorie_1_h_heres_infektionsrisiko" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:textSize="16sp"
+        android:text="@string/enger_kontakt_1_5_m_l_nger_als_15_minuten_ohne_dass_quellfall_und_kontaktperson_mns_tragen"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:textSize="16sp"
+
+        android:text="@string/kontakt_unabh_ngig_vom_abstand_mit_wahrscheinlich_hoher_konzentration_infekti_ser_aerosole_im_raum_30_minuten" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="32dp"
+
+        android:textSize="20sp"
+
+        android:text="@string/kontaktpersonen_der_kategorie_2_geringeres_infektionsrisiko" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:textSize="16sp"
+
+        android:text="@string/nahfeldexposition_1_5_m_ber_einen_zeitraum_von_weniger_als_15_minuten" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:textSize="16sp"
+
+        android:text="@string/quellfall_und_kontaktperson_trugen_durchgehend_und_korrekt_mns_in_situationen_in_denen_1_5_m_mindestabstand_nicht_eingehalten_werden_konnte" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:textSize="16sp"
+
+        android:text="@string/kurzzeitiger_aufenthalt_30_min_in_einem_raum_mit_angenommener_anreicherung_von_infekti_sen_aerosolen" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:textSize="32sp"
+
+        android:text="@string/wichtige_links" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:textSize="16sp"
+
+        android:text="@string/https_www_oesterreich_gv_at_nhttps_www_sozialministerium_at_informationen_zum_coronavirus_html_nhttps_www_1450_at_1450_die_gesundheitsnummer_nhttps_notrufnoe_com_category_infocenter_info_ueber_covid_nhttps_orf_at_corona_daten_oesterreich" />
+
+</LinearLayout>
